@@ -27,13 +27,15 @@ function printMinutes() {
 }
 
 function printSeconds() {
-  if (chronometer.getSeconds() < 10){
-    secUni.innerText = chronometer.getSeconds()
-  } else if (chronometer.getSeconds() < 60) {
-    secDec.innerText = chronometer.getSeconds()
-  } else {
+  let secStr = String(chronometer.getSeconds())
 
+  if (secStr < 10){
+    secUni.innerHTML = secStr
+  } else {
+    secUni.innerHTML = secStr[0]
+    secDec.innerHTML = secStr[1]
   }
+
 }
 
 // ==> BONUS
