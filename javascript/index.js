@@ -23,17 +23,28 @@ function printTime() {
 }
 
 function printMinutes() {
-  // ... your code goes here
+  let minStr = String(chronometer.getMinutes())
+
+  if (secStr < 10){
+    minUni.innerText = minStr
+  } else if (secStr < 60) {
+    minUni.innerText = minStr[0]
+    minDec.innerText = minStr[1]
+  } else {
+    minUni.innerText = '8'
+    minDec.innerText = '8'
+  }
+
 }
 
 function printSeconds() {
   let secStr = String(chronometer.getSeconds())
 
   if (secStr < 10){
-    secUni.innerHTML = secStr
+    secUni.innerText = secStr
   } else {
-    secUni.innerHTML = secStr[0]
-    secDec.innerHTML = secStr[1]
+    secUni.innerText = secStr[0]
+    secDec.innerText = secStr[1]
   }
 
 }
