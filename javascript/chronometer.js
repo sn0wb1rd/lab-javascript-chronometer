@@ -5,10 +5,15 @@ class Chronometer {
   }
 
   startClick(callback) {
-      this.intervalID = setInterval(() => {
-      this.currentTime += 1      
+      this.intervalId = setInterval(() => {
+      this.currentTime += 1  
+        callback()
+
+      console.log('startClick is started: ', this.currentTime)
+      
+
     }, 1000)    
-    console.log('startClick is started: ', this.currentTime)
+    
   }
 
 
@@ -35,15 +40,21 @@ class Chronometer {
     return twoDigitNotation
   }
   stopClick() {
-    clearInterval(this.intervalID)
+    clearInterval(this.intervalId)
+    console.log('STOP')
   }
   resetClick() {
     return this.currentTime = 0
   }
   splitClick() {
-    let min = Math.floor(this.currentTime/60)
-    let sec = this.currentTime % 60
+    // let min = Math.floor(this.currentTime/60)
+    // let sec = this.currentTime % 60
+    // let milli = this.currentTime % 60
+
+    let min = this.getMinutes()
+    let sec = this.getSeconds()
     let milli = this.currentTime % 60
+
     
     let splitTime = ''
     console.log('value current time: ', this.currentTime)
